@@ -105,4 +105,4 @@ worker/wrangler.toml
 **/node_modules/
 
 README.md
-static_index_site.*
+static_index_site/*
