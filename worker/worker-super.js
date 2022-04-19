@@ -22,10 +22,10 @@ const video_domain_for_dl = video_domains_for_dl[Math.floor(Math.random() * vide
 const blocked_region = ['']; // add regional codes seperated by comma, eg. ['IN', 'US', 'PK']
 const blocked_asn = []; // add ASN numbers from http://www.bgplookingglass.com/list-of-autonomous-system-numbers, eg. [16509, 12345]
 const authConfig = {
-    "siteName": "Drive Index", // Website name
+    "siteName": "My Collection", // Website name
     "client_id": "746239575955-oao9hkv614p8glrqpvuh5i8mqfoq145b.apps.googleusercontent.com", // Client id from Google Cloud Console
     "client_secret": "u5a1CSY5pNjdD2tGTU93TTnI", // Client Secret from Google Cloud Console
-    "refresh_token": "", // Authorize token
+    "refresh_token": "1//0glft49KQHg8kCgYIARAAGBASNwF-L9IrY0YKGyxVip8vHWq_m_1WogupVxlO086FlLGkhw897GiXJWGJTJdJKiP2HK7E_2xaUTI", // Authorize token
     "service_account": false, // true if you're using Service Account instead of user account
     "service_account_json": randomserviceaccount, // don't touch this one
     "files_list_page_size": 50,
@@ -37,17 +37,12 @@ const authConfig = {
     "enable_auth0_com": false, // follow guide to add auth0.com to secure index with powerful login based system
     "roots": [
         {
-            "id": "root",
-            "name": "Drive One",
-            "protect_file_link": false,
+            "id": "0AP7G4UwcfwHbUk9PVA",
+            "name": "MY COLLECTION",
+            "protect_file_link": true,
             // "auth": {"username":"password"} /* Remove double slash before "auth" to activate id password protection */
         },
-        {
-            "id": "root",
-            "name": "Drive Two",
-            "protect_file_link": false,
-            // "auth": {"username":"password", "username1":"password1"} /* Remove double slash before "auth" to activate id password protection */
-        },
+
     ]
 };
 
@@ -75,7 +70,7 @@ const auth0 = {
 ░░░╚═╝░░░╚═╝░░╚═╝╚══════╝░╚═════╝░╚══════╝╚═════╝░*/
 
 const uiConfig = {
-    "theme": "pulse", // switch between themes, default set to slate, select from https://gitlab.com/ParveenBhadooOfficial/Google-Drive-Index
+    "theme": "vapor", // switch between themes, default set to slate, select from https://gitlab.com/ParveenBhadooOfficial/Google-Drive-Index
     "version": "2.1.8", // don't touch this one. get latest code using generator at https://bdi-generator.hashhackers.com
     // If you're using Image then set to true, If you want text then set it to false
     "logo_image": true, // true if you're using image link in next option.
@@ -169,7 +164,6 @@ function html(current_drive_order = 0, model = {}) {
   <link rel="stylesheet" href="https://cdn.plyr.io/${uiConfig.plyr_io_version}/plyr.css" />
   <link href="https://cdn.jsdelivr.net/gh/dayate/litera-custom-themes@main/${uiConfig.theme}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
   <style>a{color:${uiConfig.css_a_tag_color};}p{color:${uiConfig.css_p_tag_color};}</style>
   <script src="${uiConfig.jsdelivr_cdn_src}/js/app.obf.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.min.js"></script>
@@ -198,7 +192,6 @@ const homepage = `<!DOCTYPE html>
       <link rel="stylesheet" href="https://cdn.plyr.io/${uiConfig.plyr_io_version}/plyr.css" />
       <link href="https://cdn.jsdelivr.net/gh/dayate/litera-custom-themes@main/${uiConfig.theme}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
       <style>a{color:${uiConfig.css_a_tag_color};}p{color:${uiConfig.css_p_tag_color};}</style>
    </head>
    <body>
@@ -224,7 +217,7 @@ const homepage = `<!DOCTYPE html>
                         </li>
                         ${uiConfig.show_logout_button ? '<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>' : ''}
                      </ul>
-                     <form class="d-flex ml-auto" method="get" action="/0:search">
+                     <form class="d-flex" method="get" action="/0:search">
                      <div class="input-group"> 
                          <input type="search" class="form-control search-bar bg-light" name="q" placeholder="Search" aria-label="Search" aria-describedby="search-button" value="" required="">
                          <button class="btn btn-danger btn-search" type="submit" id="search-button" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();">
@@ -240,8 +233,8 @@ const homepage = `<!DOCTYPE html>
       <div>
          <div id="content" style="padding-top: ${uiConfig.header_padding}px;">
             <div class="container">
-               <div class="d-flex align-items-center mt-3" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
-                  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <div class="d-flex align-items-center mt-2" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
+            <nav style="--bs-breadcrumb-divider: '>'; border-bottom: 2px solid #fff;" aria-label="breadcrumb">
                      <ol class="breadcrumb" id="folderne">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                      </ol>
@@ -250,7 +243,11 @@ const homepage = `<!DOCTYPE html>
                <div id="list" class="list-group text-break">
 
                </div>
-               <div class="text-center" role="alert" id="count">Total <span id="n_drives" class="number text-center"></span> drives</div>
+               <div class="divider>
+    <div class="text-center">
+    <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
+    </div>
+    </div>
             </div>
          </div>
          <div class="modal fade" id="SearchModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="SearchModelLabel" aria-hidden="true">

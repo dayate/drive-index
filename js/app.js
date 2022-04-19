@@ -173,7 +173,7 @@ function nav(path) {
                 if (n === '') {
                     break;
                 }
-                html += `<a class="dropdown-item"  href="${p}"> ${n}</a>`;
+                html += `<a class="dropdown-item"  href="${p}">${n}</a>`;
             }
         }
     }
@@ -186,7 +186,7 @@ function nav(path) {
     const isMobile = Os.isMobile;
     var search_bar = `
 </ul>
-<form class="d-flex ml-auto" method="get" action="/${cur}:search">
+<form class="d-flex" method="get" action="/${cur}:search">
 <div class="input-group"> 
     <input type="search" class="form-control search-bar bg-light" name="q" placeholder="Search" aria-label="Search" aria-describedby="search-button" value="${search_text}" required>
      <button class="btn ${UI.search_button_class} btn-search" type="submit" id="search-button" onclick="if($('#search_bar_form>input').val()) $('#search_bar_form').submit();">
@@ -351,8 +351,8 @@ function list(path) {
     var content = `<div class="container">${UI.fixed_header ? '<br>' : ''}
   <div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
-    <div class="d-flex align-items-center mt-3" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
-  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <div class="d-flex align-items-center mt-2" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
+  <nav style="--bs-breadcrumb-divider: '>'; border-bottom: 2px solid #fff;" aria-label="breadcrumb">
     <ol class="breadcrumb" id="folderne"><li class="breadcrumb-item"><a href="/">Home</a></li>`;
     var navlink = '';
     var navfulllink = window.location.pathname;
@@ -385,7 +385,11 @@ function list(path) {
   </div>
     <div id="list" class="list-group text-break">
     </div>
-    <div class="text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
+    <div class="divider>
+    <div class="text-center">
+    <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
+    </div>
+    </div>
     <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
     </div>
     `;
@@ -611,12 +615,16 @@ function render_search_result_list() {
     var content = `
   <div class="container"><br>
   <div id="update"></div>
-  <div class="card">
-  <div class="d-flex align-items-center mt-3" role="alert" style="margin-bottom: 0;">Search Results</div>
+  <div class="card search-result">
+  <div class="d-flex align-items-center mt-2 mb-2" style="border: 2px solid #fff;">Search Results</div>
   <div id="list" class="list-group text-break">
   </div>
   </div>
-  <div class="text-center d-none" role="alert" id="count">Total <span class="number text-center"></span> items</div>
+  <div class="divider>
+  <div class="text-center">
+  <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
+  </div>
+  </div>
   <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
   </div>
   `;
@@ -876,7 +884,7 @@ function file_others(path) {
                   </div><p>The Requested Link contains a folder not a file.</p>
                   <div class="card-text text-center">
                   <div class="btn-group text-center">
-                  <a href="` + window.location.pathname + `/" type="button" class="btn btn-primary">Open as Folder</a>
+                  <a href="` + window.location.pathname + `/" type="button" class="btn btn-secondary">Open as Folder</a>
                   </div>
                   </div><br>
                   </div>
@@ -891,15 +899,15 @@ function file_others(path) {
 <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
   <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only"></span>
       </button>
       <div class="dropdown-menu">
@@ -921,7 +929,7 @@ function file_others(path) {
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
@@ -968,15 +976,15 @@ function file_code(path) {
 <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
   <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only"></span>
       </button>
       <div class="dropdown-menu">
@@ -997,7 +1005,7 @@ function file_code(path) {
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
@@ -1066,14 +1074,14 @@ ${UI.disable_video_download ? `` : `
 <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
 ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
 <div class="btn-group text-center">
-    <a href="${url}" type="button" class="btn btn-primary">Download</a>
-    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="sr-only"></span>
     </button>
     <div class="dropdown-menu">
@@ -1107,7 +1115,7 @@ ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://d
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
@@ -1147,15 +1155,15 @@ function file_audio(path) {
   <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
   <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only"></span>
       </button>
       <div class="dropdown-menu">
@@ -1178,7 +1186,7 @@ function file_audio(path) {
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
@@ -1277,15 +1285,15 @@ function file_pdf(path) {
   <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
   <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only"></span>
       </button>
       <div class="dropdown-menu">
@@ -1308,7 +1316,7 @@ function file_pdf(path) {
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
@@ -1362,9 +1370,9 @@ function file_image(path) {
             }
             targetText = `
 
-                              ${prevchild ? `<a class="btn btn-primary" href="${prev_child}?a=view" role="button">Previous</a>` : ``}
+                              ${prevchild ? `<a class="btn btn-secondary" href="${prev_child}?a=view" role="button">Previous</a>` : ``}
 
-                              ${nextchild ? `<a class="btn btn-primary" href="${next_child}?a=view" role="button">Next</a>` : ``}
+                              ${nextchild ? `<a class="btn btn-secondary" href="${next_child}?a=view" role="button">Next</a>` : ``}
 
                   `;
         }
@@ -1385,15 +1393,15 @@ function file_image(path) {
   <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
   <div class="btn-group text-center">
-      <a href="${url}" type="button" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="${url}" type="button" class="btn btn-secondary">Download</a>
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only"></span>
       </button>
       <div class="dropdown-menu">
@@ -1416,7 +1424,7 @@ function file_image(path) {
     </div><p>The requested URL was not found on this server. That’s all we know.</p>
       <div class="card-text text-center">
       <div class="btn-group text-center">
-        <a href="/" type="button" class="btn btn-primary">Homepage</a>
+        <a href="/" type="button" class="btn btn-secondary">Homepage</a>
       </div>
         </div><br>
 </div>
