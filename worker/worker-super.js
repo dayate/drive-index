@@ -164,6 +164,7 @@ function html(current_drive_order = 0, model = {}) {
   <link rel="stylesheet" href="https://cdn.plyr.io/${uiConfig.plyr_io_version}/plyr.css" />
   <link href="https://cdn.jsdelivr.net/gh/dayate/litera-custom-themes@main/${uiConfig.theme}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href"${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
   <style>a{color:${uiConfig.css_a_tag_color};}p{color:${uiConfig.css_p_tag_color};}</style>
   <script src="${uiConfig.jsdelivr_cdn_src}/js/app.obf.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.min.js"></script>
@@ -192,6 +193,7 @@ const homepage = `<!DOCTYPE html>
       <link rel="stylesheet" href="https://cdn.plyr.io/${uiConfig.plyr_io_version}/plyr.css" />
       <link href="https://cdn.jsdelivr.net/gh/dayate/litera-custom-themes@main/${uiConfig.theme}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+      <link rel="stylesheet" href"${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
       <style>a{color:${uiConfig.css_a_tag_color};}p{color:${uiConfig.css_p_tag_color};}</style>
    </head>
    <body>
