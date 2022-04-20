@@ -85,23 +85,23 @@ const uiConfig = {
     "nav_link_3": "Current Path", // change navigation link name
     "nav_link_4": "Contact", // change navigation link name
     "show_logout_button": false, // shows logout button if auth0.com is active
-    "fixed_footer": false, // If you want the footer to be flexible or fixed.
-    "hide_footer": true, // hides the footer from site entirely.
+    "fixed_footer": true, // If you want the footer to be flexible or fixed.
+    "hide_footer": false, // hides the footer from site entirely.
     "header_style_class": "navbar-dark bg-dark", // navbar-dark bg-primary || navbar-dark bg-dark || navbar-light bg-light
-    "footer_style_class": "bg-primary", // bg-primary || bg-dark || bg-light
+    //"footer_style_class": "bg-primary", // bg-primary || bg-dark || bg-light
     "css_a_tag_color": "white", // Color Name or Hex Code eg. #ffffff
     "css_p_tag_color": "white", // Color Name or Hex Code eg. #ffffff
     "folder_text_color": "white", // Color Name or Hex Code eg. #ffffff
-    "loading_spinner_class": "text-warning", // https://getbootstrap.com/docs/5.0/components/spinners/#colors
-    "search_button_class": "btn btn-danger", // https://getbootstrap.com/docs/5.0/components/buttons/#examples
+    "loading_spinner_class": "text-secondary", // https://getbootstrap.com/docs/5.0/components/spinners/#colors
+    "search_button_class": "btn btn-secondary", // https://getbootstrap.com/docs/5.0/components/buttons/#examples
     "path_nav_alert_class": "", // https://getbootstrap.com/docs/4.0/components/alerts/#examples
     "file_view_alert_class": "alert alert-success", // https://getbootstrap.com/docs/4.0/components/alerts/#examples
     "file_count_alert_class": "", // https://getbootstrap.com/docs/4.0/components/alerts/#examples
-    "contact_link": "https://telegram.dog/Telegram", // Link to Contact Button on Menu
-    "copyright_year": "2022", // year of copyright, can be anything like 2015 - 2020 or just 2020
-    "company_name": "Drive Cloud", // Name next to copyright
-    "company_link": "https://telegram.dog/Telegram", // link of copyright name
-    "credit": true, // Set this to true to give us credit
+    //"contact_link": "https://telegram.dog/Telegram", // Link to Contact Button on Menu
+    //"copyright_year": "2022", // year of copyright, can be anything like 2015 - 2020 or just 2020
+    //"company_name": "Drive Cloud", // Name next to copyright
+    // "company_link": "https://telegram.dog/Telegram", // link of copyright name
+    // "credit": true, // Set this to true to give us credit
     "display_size": true, // Set this to false to hide display file size
     "display_time": false, // Set this to false to hide display modified time for folder and files
     "display_download": true, // Set this to false to hide download icon for folder and files on main index
@@ -193,7 +193,7 @@ const homepage = `<!DOCTYPE html>
       <link rel="stylesheet" href="https://cdn.plyr.io/${uiConfig.plyr_io_version}/plyr.css" />
       <link href="https://cdn.jsdelivr.net/gh/dayate/litera-custom-themes@main/${uiConfig.theme}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href"${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
+      <link rel="stylesheet" href="${uiConfig.jsdelivr_cdn_src}/css/style.css"></link>
       <style>a{color:${uiConfig.css_a_tag_color};}p{color:${uiConfig.css_p_tag_color};}</style>
    </head>
    <body>
@@ -269,7 +269,7 @@ const homepage = `<!DOCTYPE html>
             </div>
          </div>
          <br>
-         <footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#"><span class="to-top bi bi-arrow-up-circle-fill"></span></a> </p></div> </footer>
+         <footer class="footer mt-auto py-3 text-muted ${uiConfig.footer_style_class}" style="${uiConfig.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${uiConfig.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#"><span class="to-top bi bi-arrow-up-circle-fill"></span></a> </p></div> </footer>
       </div>
    </body>
   <script src="${uiConfig.jsdelivr_cdn_src}/assets/homepage.min.js"></script>

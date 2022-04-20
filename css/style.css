@@ -1,3 +1,7 @@
+.divider {
+    margin-top: 10px;
+}
+
 .divider:after {
     content: "";
     display: block;
