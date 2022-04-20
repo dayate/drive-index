@@ -214,7 +214,7 @@ const homepage = `<!DOCTYPE html>
                   <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <ul class="navbar-nav me-sm-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                           <a class="nav-link" href="/">${uiConfig.nav_link_1}</a>
                         </li>
@@ -244,7 +244,7 @@ const homepage = `<!DOCTYPE html>
          <div id="content" style="padding-top: ${uiConfig.header_padding}px;">
             <div class="container">
                <div class="d-flex align-items-center mt-3" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
-                  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                  <nav style="--bs-breadcrumb-divider: '>'; border-bottom: 2px solid #fff; width: 100%;" aria-label="breadcrumb">
                      <ol class="breadcrumb" id="folderne">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                      </ol>
@@ -253,7 +253,11 @@ const homepage = `<!DOCTYPE html>
                <div id="list" class="list-group text-break">
 
                </div>
-               <div class="text-center" role="alert" id="count">Total <span id="n_drives" class="number text-center"></span> drives</div>
+               <div class="divider">
+               <div class="text-center">
+                   <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
+               </div>
+               </div>
             </div>
          </div>
          <div class="modal fade" id="SearchModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="SearchModelLabel" aria-hidden="true">
@@ -273,7 +277,7 @@ const homepage = `<!DOCTYPE html>
             </div>
          </div>
          <br>
-         <footer class="footer mt-auto py-3 text-muted ${uiConfig.footer_style_class}" style="${uiConfig.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${uiConfig.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${uiConfig.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${uiConfig.copyright_year} - <a href=" ${uiConfig.company_link}" target="_blank"> ${uiConfig.company_name}</a>, All Rights Reserved.</p> </div> </footer>
+         <footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#"><span class="to-top bi bi-arrow-up-circle-fill"></span></a> </p></div> </footer>
       </div>
    </body>
    <script src="${uiConfig.jsdelivr_cdn_src}/assets/homepage.min.js"></script>

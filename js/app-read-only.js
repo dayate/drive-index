@@ -27,7 +27,7 @@ function init() {
   </div>
 </div>
 <br>
-<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
+<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#"><span class="to-top bi bi-arrow-up-circle-fill"></span></a> </p></div> </footer>
   `;
     $('body').html(html);
 }
@@ -135,7 +135,7 @@ function nav(path) {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-sm-auto mb-2 mb-lg-0">
       <li class="nav-item">
         <a class="nav-link" href="/${cur}:/">${UI.nav_link_1}</a>
       </li>`;
@@ -385,7 +385,7 @@ function list(path) {
   </div>
     <div id="list" class="list-group text-break">
     </div>
-    <div class="divider>
+    <div class="divider">
     <div class="text-center">
     <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
     </div>
@@ -616,11 +616,11 @@ function render_search_result_list() {
   <div class="container"><br>
   <div id="update"></div>
   <div class="card search-result">
-  <div class="d-flex align-items-center mt-2 mb-2" style="border: 2px solid #fff;">Search Results</div>
+  <div class="d-flex align-items-center mt-2 mb-2 search-border">Search Results</div>
   <div id="list" class="list-group text-break">
   </div>
   </div>
-  <div class="divider>
+  <div class="divider">
   <div class="text-center">
   <div class="badge badge-light p-2 d-none" id="count">Total <span class="number text-center"></span> items</div>
   </div>
@@ -1237,18 +1237,18 @@ function file_image(path) {
                 var size = formatFileSize(obj.size);
                 var content = `
   <div class="container"><br>
-  <div class="card">
+  <div class="card d-file">
   <div class="card-body text-center">
   <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
   <div>${targetText}</div><br>
   <img src="${url}" width="50%">
   </div>
-  <div class="card-body">
+  <div class="card-body d-file-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
-    <span class="input-group-text bg-dark" id="">Full URL</span>
+    <span class="input-group-text bg-dark text-white" id="">Full URL</span>
   </div>
-  <input type="text" class="form-control bg-dark" id="dlurl" value="${url}">
+  <input type="text" class="form-control bg-primary text-white" id="dlurl" value="${url}">
 </div>
   <div class="card-text text-center">
   ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://drive.google.com/file/d/' + obj.id + '/view" id ="file_drive_link" target="_blank">GD Link</a>' : ''}
